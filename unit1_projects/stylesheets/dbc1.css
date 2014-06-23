@@ -1,0 +1,39 @@
+body {
+	background: #2E2C2B;
+	font-family: “Trebuchet MS”, Verdana, Arial, serif;
+	color: #ffffff
+}
+
+/* unvisited link */
+a:link {
+    color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+    color: #0080ff;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+p {
+	color: blue;
+}
+
+.greentext {
+	color: #80ff00
+}
+
+#id_title {
+	color: #f2f2f2;
+	font-size: 120%;
+	font-style: italic
+}
