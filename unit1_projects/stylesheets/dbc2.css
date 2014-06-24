@@ -8,7 +8,16 @@ body {
 	background: #eeeeee
 }
 
-#header, #footer {
+#header {
+	letter-spacing: 3px;
+	text-align: center;
+	background: #f5f5f5;
+	color: #afafaf;
+	height: 75px;
+	padding: 5px
+}
+
+#footer {
 	text-align: center;
 	background: #f5f5f5;
 	color: #afafaf;
@@ -32,7 +41,7 @@ body {
 	list-style: none
 }
 
-.content {
+#content {
 	width: 700px;
 	background: #ffffff;
 	color: #6d6d6d;
@@ -49,6 +58,31 @@ body {
 	border-color: #c1c1c1
 }
 
+img {
+	width: 640px;
+	height: 100%
+}
+
+.imagecaption h1 {
+	color: #e6e6e6;
+	position: relative;
+	top: 75px;
+	left: 30px
+}
+
 #footer {
 	clear: both
+}
+
+a:link {
+    color: #53b2b9
+}
+a:visited {
+    color: #9060f6
+}
+a:hover {
+    color: #f08a1f
+}
+a:active {
+    color: #53c849
 }
