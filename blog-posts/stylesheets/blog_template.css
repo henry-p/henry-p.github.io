@@ -3,7 +3,7 @@ body {
 }
 
 #container {
-  width: 970px;
+  width: 958px;
   margin: 20px auto;
   background: #c5c5c5
 }
@@ -23,17 +23,17 @@ body {
   border-bottom-width: 2px
 }
 #header a:link {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 #header a:visited {
-    color: #ffffff
+  color: #ffffff
 }
 #header a:hover {
-    color: #f08a1f
+  color: #f08a1f
 }
 #header a:active {
-    color: #ffffff
+  color: #ffffff
 }
 #header img {
   float: left;
@@ -51,17 +51,14 @@ body {
 }
 
 #sidebar {
-  float: left;
+  float: right;
   width: 250px;
   padding-top: 15px;
-  padding-left: 15px;
+  padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
   color: #ffffff;
-  line-height: 150%;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #ffffff
+  line-height: 200%;
 }
 
 #sidebar ul {
@@ -82,22 +79,22 @@ body {
 }
 
 a:link {
-    color: #ffffff
+  color: #ffffff
 }
 a:visited {
-    color: #efefef
+  color: #ffffff
 }
 a:hover {
-    color: #f08a1f
+  color: #f08a1f
 }
 a:active {
-    color: #53c849
+  color: #53c849
 }
 
 #content {
   width: 698px;
   background: #ffffff;
-  float: left
+  float: right
 }
 
 .article {
@@ -113,16 +110,16 @@ a:active {
 }
 
 .article a:link {
-    color: #f08a1f
+  color: #f08a1f
 }
 .article a:visited {
-    color: #ffe055
+  color: #f08a1f
 }
 .article a:active {
-    color: #53c849
+  color: #53c849
 }
 .article a:hover {
-    color: #4c9ba3
+  color: #4c9ba3
 }
 
 img {
