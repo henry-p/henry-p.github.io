@@ -1,39 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>Welcome to my DBC website!</title>
-    <link rel="stylesheet" type="text/css" href="blog-posts/stylesheets/blog_template.css">
+    <title>Well Positioned</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Audiowide|Quicksand:300,400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="blog-posts/stylesheets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="blog-posts/stylesheets/blog.css" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div id="container">
-      <div id="header"><img src="blog-posts/images/arrow_right.png" alt=""><a href="index.html"><h1>HENRY</h1></a>
-      </div>
-      <div id="sidebar">
-      <h1>Articles</h1>
-      <ul>
-        <li><a href="unit1_projects/wireframe_sites.html">Wireframes</a></li>
-        <li><a href="blog-posts/week1_cultural.html">My Take On The DBC Experience</a></li>
-        <li>
-          <a href="blog-posts/week1_technical.html">Websites With Good Design</a>
-          <ul>
-            <li><a href="blog-posts/week1_technical.html#website-analysis">Website Analysis</a></li>
-            <li><a href="blog-posts/week1_technical.html#spotify">Design of Spotify.com/de</a></li>
-            <li><a href="blog-posts/week1_technical.html#squareup">Design of Squareup.com</a></li>
-            <li><a href="blog-posts/week1_technical.html#googleplus">Design of Google+</a></li>
+    <header>
+      <span id="blogcaption">HENRY</span>
+      <nav>
+        <ul>
+          <li><a href="http://henry-p.github.io/">About</a></li>
+          <li><a href="#">Blog Posts</a>
+            <ul>
+              <li>
+                <a href="blog-posts/week2_technical.html">Well Positioned</a>
+                <ul>
+                  <li><a href="blog-posts/week2_technical.html#outline">Outline</a></li>
+                  <li><a href="blog-posts/week2_technical.html#posstatic">Static Positioning</a></li>
+                  <li><a href="blog-posts/week2_technical.html#posrelative">Relative Positioning</a></li>
+                  <li><a href="blog-posts/week2_technical.html#posabsolute">Absolute Positioning</a></li>
+                  <li><a href="blog-posts/week2_technical.html#posfixed">Fixed Positioning</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="blog-posts/wireframe_sites.html">Wireframes</a>
+              </li>
+              <li>
+                <a href="blog-posts/week1_cultural.html">My Take On The DBC Experience</a>
+              </li>
+              <li>
+                <a href="blog-posts/week1_technical.html">Websites With Good Design</a>
+                <ul>
+                  <li><a href="blog-posts/week1_technical.html#website-analysis">Website Analysis</a></li>
+                  <li><a href="blog-posts/week1_technical.html#spotify">Design of Spotify.com/de</a></li>
+                  <li><a href="blog-posts/week1_technical.html#squareup">Design of Squareup.com</a></li>
+                  <li><a href="blog-posts/week1_technical.html#googleplus">Design of Google+</a></li>
+                </ul>
+              </li>
+            </ul>
           </ul>
-        </li>
-      </ul>
-    </div>
-      <div id="content">
-        <div class="article" id="subarticle1">
-          <h2>Welcome to my DBC website!</h2>
-          Please click on an article on the right to get to a specific blog post!
+        </nav>
+    </header>
+    <section>
+      <h1>About Me</h1>
+      <article id="content">
+        <a name="outline"></a>
+        <h2>Welcome to my DBC website!</h2>
+        <a class="jump down" href="#bottom">&iacute;</a>
+        <div class = "wrapper">
+            Go to the header bar to view my blog posts! The article 'Well Positioned' is the first one to benefit from my new blog design. More about me will follow... Stay tuned ;)
         </div>
-      </div>
-      <div id="footer">
-        <h1>@GitHub: <a href="https://github.com/henry-p">henry-p</a></h1>
-      </div>
-    </div> 
+      </article>
+    </section>
+    <footer>
+       <div id="social">
+          <img src="blog-posts/images/github_icon.png" alt="GitHub Icon"> <a href="https://github.com/henry-p">henry-p</a>
+        </div>
+    </footer>
+    <a name="bottom"></a>
   </body>
 </html>
