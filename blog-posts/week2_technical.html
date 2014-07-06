@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Well Positioned</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Audiowide|Quicksand:300,400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/blog.css" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+      <span id="blogcaption">HENRY'S BLOG</span>
+      <nav>
+        <ul>
+          <li><a href="http://henry-p.github.io/">About</a></li>
+          <li><a href="#">Blog Posts</a>
+            <ul>
+              <li>
+                <a href="#">Well Positioned</a>
+                <ul>
+                  <li><a href="week2_technical.html#outline">Outline</a></li>
+                  <li><a href="week2_technical.html#posstatic">Static Positioning</a></li>
+                  <li><a href="week2_technical.html#posrelative">Relative Positioning</a></li>
+                  <li><a href="week2_technical.html#posabsolute">Absolute Positioning</a></li>
+                  <li><a href="week2_technical.html#posfixed">Fixed Positioning</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="wireframe_sites.html">Wireframes</a>
+              </li>
+              <li>
+                <a href="week1_cultural.html">My Take On The DBC Experience</a>
+              </li>
+              <li>
+                <a href="week1_technical.html">Websites With Good Design</a>
+                <ul>
+                  <li><a href="week1_technical.html#website-analysis">Website Analysis</a></li>
+                  <li><a href="week1_technical.html#spotify">Design of Spotify.com/de</a></li>
+                  <li><a href="week1_technical.html#squareup">Design of Squareup.com</a></li>
+                  <li><a href="week1_technical.html#googleplus">Design of Google+</a></li>
+                </ul>
+              </li>
+            </ul>
+          </ul>
+        </nav>
+    </header>
+    <section>
+      <h1>Well Positioned</h1>
+      <article id="content">
+        <a name="outline"></a>
+        <h2>Outline</h2>
+        <a class="jump down" href="#posstatic">&iacute;</a>
+        <div class = "wrapper">
+            There are actually four positioning types. The default is <em>static</em>. Additionally one can choose between the options <em>absolute</em>, <em>relative</em> and <em>static</em>. You only refer to an object as „positioned“ if one of the last three positioning types is applied. The different types majorly differ, but each one of them can be very useful depending on the particular use-case.
+            Take for <a href="http://www.w3schools.com/css/css_boxmodel.asp">granted</a> that every element on a webpage can be considered as a rectangle of pixels (a box).
+        </div>
+      </article>
+      <article id="content">
+        <a name="posstatic"></a>
+        <h2>Static</h2>
+        <a class="jump up" href="#outline">&igrave;</a>
+        <a class="jump down" href="#posrelative">&iacute;</a>
+        <div class = "wrapper">
+            Let’s start with the default setting: <br>
+            Static doesn't mean much, it just means that the element will flow into the page as it normally would. As positioning doesn’t <a href="http://www.w3.org/TR/CSS2/cascade.html#cascade">cascade</a>, it very rarely happens that some positioning gets applied to an element outside of your control. To forcefully remove such a positioning from an element you’d use <em>position: static</em>.
+        </div>
+      </article>
+      <article id="content">
+        <a name="posrelative"></a>
+        <h2>Relative</h2>
+        <a class="jump up" href="#posstatic">&igrave;</a>
+        <a class="jump down" href="#posabsolute">&iacute;</a>
+        <div class = "wrapper">
+            It’s important to understand this type well, because is misused often.
+            The reference object to which the relation applies is the element itself.
+            As a result, nothing happens to the position of an object if don’t state the direct into which the object should shift. For instance, to shift an object 100 pixels to the <em>right</em> the attribute would be <br>
+            <strong>{ position: relative; <br>
+            left: 100px }</strong> <br>
+            Think about it as follows: In your mind, go to the left border of the object (the box). Place 100 imaginary pixels between your standpoint and the box to shift it to the right. This is especially useful for adding a caption to an image, for instance. This can be a pitfall if your image is absolutely positioned. So be careful at mixing up <em>absolute</em> and <em>relative</em> when the elements depend directly on each other’s position.
+            Also remember that positions elements have a <a href="http://www.w3schools.com/cssref/pr_pos_z-index.asp">z-index</a> value that is always higher than the one of static elements. In fact, static elements don’t really have a z-index and always stay underneath positioned elements, as a result.
+            Furthermore be aware of the fact that any element that is a child of the relatively positioned element can be absolutely positioned within that block, which can be particularly useful.
+        </div>
+      </article>
+      <article id="content">
+        <a name="posabsolute"></a>
+        <h2>Absolute</h2>
+        <a class="jump up" href="#posabsolute">&igrave;</a>
+        <a class="jump down" href="#posfixed">&iacute;</a>
+        <div class = "wrapper">
+            This type of positioning that allows you to literally place any page element exactly where you want it. These values will be relative to the next parent element with relative (or absolute) positioning. If there’s no parent, the default is the &lt;html&gt; box, which results in a positioning relative to the page. Although this type of positioning can be very powerful, always remember that those elements are removed from the flow of the page. That means that they don’t have an effect on other elements, as well as other elements don't affect them. This can decrease the responsiveness of your site.
+        </div>
+      </article>
+      <article id="content">
+        <a name="posfixed"></a>
+        <h2>Fixed</h2>
+        <a class="jump up" href="#posabsolute">&igrave;</a>
+        <a class="jump down" href="#bottom">&iacute;</a>
+        <div class = "wrapper">
+            A fixed position element is positioned relative to the viewport, the browser window itself. That means that the position of a fixed element doesn't change when you scroll the page, because the viewport (window) does <strong>not</strong> move at the same time. This can be especially useful for navigational elements. Again, be careful! Test your site thoroughly after implementing fixed elements. Scroll your page into all directions and see if some elements overlap. Moreover, test your page on different screen sizes. For example, if your fixed sidebar is too bulky for small screens, there is no way for the user to scroll down to see the full sidebar content (because scrolling doesn’t affect the viewport).
+        </div>
+      </article>
+    </section>
+    <footer>
+       <div id="social">
+          <img src="images/github_icon.png" alt="GitHub Icon"> <a href="https://github.com/henry-p">henry-p</a>
+        </div>
+    </footer>
+    <a name="bottom"></a>
+  </body>
+</html>
