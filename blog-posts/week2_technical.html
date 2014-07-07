@@ -55,7 +55,7 @@
         <h2>Outline</h2>
         <a class="jump down" href="#posstatic">&iacute;</a>
         <div class = "wrapper">
-            There are actually four positioning types. The default is <em>static</em>. Additionally one can choose between the options <em>absolute</em>, <em>relative</em> and <em>static</em>. You only refer to an object as „positioned“ if one of the last three positioning types is applied. The different types majorly differ, but each one of them can be very useful depending on the particular use-case.
+            There are actually four positioning types. The default is <em>static</em>. Additionally one can choose between the three options <em>absolute</em>, <em>relative</em> and <em>static</em>. You only refer to an object as „positioned“ if one of the last three positioning types is applied. The different types majorly differ, but each one of them can be very useful depending on the particular use-case.
             Take for <a href="http://www.w3schools.com/css/css_boxmodel.asp">granted</a> that every element on a webpage can be considered as a rectangle of pixels (a box).
         </div>
       </article>
@@ -77,11 +77,13 @@
         <div class = "wrapper">
             It’s important to understand this type well, because is misused often.
             The reference object to which the relation applies is the element itself.
-            As a result, nothing happens to the position of an object if don’t state the direct into which the object should shift. For instance, to shift an object 100 pixels to the <em>right</em> the attribute would be <br>
-            <strong>{ position: relative; <br>
-            left: 100px }</strong> <br>
-            Think about it as follows: In your mind, go to the left border of the object (the box). Place 100 imaginary pixels between your standpoint and the box to shift it to the right. This is especially useful for adding a caption to an image, for instance. This can be a pitfall if your image is absolutely positioned. So be careful at mixing up <em>absolute</em> and <em>relative</em> when the elements depend directly on each other’s position.
-            Also remember that positions elements have a <a href="http://www.w3schools.com/cssref/pr_pos_z-index.asp">z-index</a> value that is always higher than the one of static elements. In fact, static elements don’t really have a z-index and always stay underneath positioned elements, as a result.
+            As a result, nothing happens to the position of an object if you don’t state the direction in which the object should shift. For instance, to shift an object 100 pixels to the <em>right</em> the attribute would be <br>
+            <em>{ <br>
+            position: relative; <br>
+            left: 100px <br>
+            }</em> <br>
+            Think about it as follows: In your mind, go to the left border of the object (the box). Place 100 imaginary pixels between your standpoint and the box to shift it to the right. This is especially useful for adding a caption to an image, for instance. This can be a pitfall if your image is absolutely positioned. So be careful when mixing up <em>absolute</em> and <em>relative</em>. Especially when the elements depend directly on each other’s position.
+            Also remember that positions elements have a <a href="http://www.w3schools.com/cssref/pr_pos_z-index.asp">z-index</a> value that is always higher than the one of static elements. In fact, static elements don’t really have a z-index. Hence they always stay underneath positioned elements.
             Furthermore be aware of the fact that any element that is a child of the relatively positioned element can be absolutely positioned within that block, which can be particularly useful.
         </div>
       </article>
@@ -91,7 +93,7 @@
         <a class="jump up" href="#posrelative">&igrave;</a>
         <a class="jump down" href="#posfixed">&iacute;</a>
         <div class = "wrapper">
-            This type of positioning that allows you to literally place any page element exactly where you want it. These values will be relative to the next parent element with relative (or absolute) positioning. If there’s no parent, the default is the &lt;html&gt; box, which results in a positioning relative to the page. Although this type of positioning can be very powerful, always remember that those elements are removed from the flow of the page. That means that they don’t have an effect on other elements, as well as other elements don't affect them. This can decrease the responsiveness of your site.
+            This type of positioning that allows you to literally place any page element exactly where you want it. These values will be relative to the next parent element with relative (or absolute) positioning. If there’s no parent, the default is the <em>&lt;html&gt;</em> box, which results in a positioning relative to the page. Although this type of positioning can be very powerful, always remember that those elements are removed from the flow of the page. That means that they don’t have an effect on other elements, as well as other elements don't affect them. This can decrease the responsiveness of your site.
         </div>
       </article>
       <article id="content">
@@ -100,7 +102,7 @@
         <a class="jump up" href="#posabsolute">&igrave;</a>
         <a class="jump down" href="#bottom">&iacute;</a>
         <div class = "wrapper">
-            A fixed position element is positioned relative to the viewport, the browser window itself. That means that the position of a fixed element doesn't change when you scroll the page, because the viewport (window) does <strong>not</strong> move at the same time. This can be especially useful for navigational elements. Again, be careful! Test your site thoroughly after implementing fixed elements. Scroll your page into all directions and see if some elements overlap. Moreover, test your page on different screen sizes. For example, if your fixed sidebar is too bulky for small screens, there is no way for the user to scroll down to see the full sidebar content (because scrolling doesn’t affect the viewport).
+            A fixed position element is positioned relative to the viewport, the browser window itself. That means that the position of a fixed element doesn't change when you scroll the page, because the viewport (window) does <strong>not</strong> move at the same time. This can particularly be useful for navigational elements. Again, be careful! Test your site thoroughly after implementing fixed elements. Scroll your page into all directions and see if some elements overlap. Moreover, test your page on different screen sizes. For example, if your fixed sidebar is too bulky for small screens, there is no way for the user to scroll down to see the full sidebar content (because scrolling doesn’t affect the viewport).
         </div>
       </article>
     </section>

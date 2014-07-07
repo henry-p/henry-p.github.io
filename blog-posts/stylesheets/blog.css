@@ -48,6 +48,12 @@ h4 {
   font-size: 1em;
   text-align: center;
 }
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: bold;
+}
 
 /* Header */
 header {
