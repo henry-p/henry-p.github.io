@@ -164,6 +164,9 @@ section div.wrapper {
   max-width:1400px;
   margin: 0 auto;
 }
+section div.wrapper ol {
+  list-style-type: decimal;
+}
 section div.wrapper img {
   display: block;
   margin-left: auto;
