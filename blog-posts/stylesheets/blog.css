@@ -140,7 +140,6 @@ header nav ul ul ul {
 }
 
 /* Section */
-
 section article {
   margin-bottom: 1em;
   position: relative;
@@ -150,6 +149,11 @@ section div.wrapper {
   width: 70%;
   max-width:1400px;
   margin: 0 auto;
+}
+section div.wrapper img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 section div.wrapper a:link {
   color: #3399ff;
