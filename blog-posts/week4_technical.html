@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enumerablez</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Source+Code+Pro:600' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/blog.css" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+      <span id="blogcaption">HENRY'S BLOG</span>
+      <nav>
+        <ul>
+          <li><a href="http://henry-p.github.io/">About</a></li>
+          <li><a href="#">Blog Posts</a>
+            <ul>
+              <li>
+                <a href="week4_technical.html">Enumerablez</a>
+              </li>
+              <li>
+                <a href="week4_cultural.html">Don't feed the patent troll!</a>
+              </li>
+              <li>
+                <a href="week3_technical.html">What's cool about Javascript?</a>
+              </li>
+              <li>
+                <a href="week3_cultural.html">Min<em>d</em>nority Report</a>
+              </li>
+              <li>
+                <a href="week2_technical.html">Well Positioned</a>
+              </li>
+              <li>
+                <a href="wireframe_sites.html">Wireframes</a>
+              </li>
+              <li>
+                <a href="week1_cultural.html">My Take On The DBC Experience</a>
+              </li>
+              <li>
+                <a href="week1_technical.html">Websites With Good Design</a>
+              </li>
+            </ul>
+          </ul>
+        </nav>
+    </header>
+    <section>
+      <h1>Enumerable_</h1>
+      <article id="content">
+        <a class="anchor" id="map"></a>
+        <h2>#map</h2>
+        <a class="jump down" href="#group_by">&iacute;</a>
+        <div class = "wrapper">
+            <strong>Enumerable#map</strong> <br>
+            First of all, what is <em>Enumerable</em>? <br>
+            The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. I won't go further into what a <em>mixin</em> is, but you can think of it as a class which contains a combination of methods from other classes for now. If you understand loops and arrays and hashes, there's nothing new here. But you can do more with less lines of code, using the Enumerable mixin. <br> <br>
+            Take a look at this code:
+            <div class="code">
+              <ol>
+                <li>arr = [1, 2, 3, 4, 5]</li>
+                <li>arr.each_index do |i|</li>
+                <li>&nbsp;&nbsp;arr[i] *= 10</li>
+                <li>end</li>
+                <li><br></li>
+                <li>puts arr.join(", ")   # => 10, 20, 30, 40, 50</li>
+              </ol>
+            </div>
+            It takes an array and multiplies each element with 10. <br>
+            Now, <em>#map</em> is a method returning a copy of the its invoking collection. That means that not the actual array is modified, but instead you can assign <em>#map</em>'s return to a new array. Here's how it looks like:
+            <div class="code">
+              <ol>
+                <li>arr = [1, 2, 3, 4, 5]</li>
+                <li>new_arr = arr.map { |x| x * 10 }</li>
+                <li><br></li>
+                <li>puts arr.join(", ")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# => 1, 2, 3, 4, 5   </li>
+                <li>puts new_arr.join(", ") # => 10, 20, 30, 40, 50</li>
+              </ol>
+            </div>
+            As you can see, <span class="code">arr</span> hasn't changed! Instead, the modified values have been assigned to <span class="code">new_arr</span>! <br>
+            So <em>#map</em> is just some fancy fork of <em>each</em>! In fact, <em>#map</em>, and all the other Enumerable iterating methods are based off of <em>each</em>! <br>
+            If you wanted to actually change <span class="code">arr</span>, you could also use <span class="code">arr.map!{|a| a * 10}</span> (notice the exclamation mark!).
+        </div>
+      </article>
+      <article id="content">
+        <a class="anchor" id="group_by"></a>
+        <h2>#group_by</h2>
+        <a class="jump up" href="#map">&igrave;</a>
+        <a class="jump down" href="#cycle">&iacute;</a>
+        <div class = "wrapper">
+            <strong>Enumerable#group_by</strong> <br>
+            <em>#group_by</em> groups the collection by result of the <span class="code">{ BLOCK }</span>. It returns a hash where the keys are the evaluated result from the <em>block</em> and the values are arrays of elements in the collection that correspond to the key. Let's have a look at an example:
+            <div class="code">
+              <ol>
+                <li>array = ["Spiderman", "Batman", "Superman", "Hulk", "Magneto"]</li>
+                <li>hash = array.group_by { |i| i.include?("e") }</li>
+                <li><br></li>
+                <li>puts(hash.map{|k,v| "#{k} = #{v}"}.join(', ')) <br>
+                  # => true = ["Spiderman", "Superman", "Magneto"], false = ["Batman", "Hulk"]</li>
+              </ol>
+            </div>
+            (Don't get confused by the last line, it just prints out the <em>hash</em> in a readable way.) <br>
+            This code takes an array of names and divides the array in two groups: one group for which it holds <em>true</em> that all its elements contain an "e", and one group for which this is <em>false</em>. The reason why it's exactly two groups here is that <span class="code">include?</span> only returns either <em>true</em> or <em>false</em>. But of course you can put other statements into the <em>block</em> and hence have more (or less) than two groups.<br>
+            So the "workflow" of this little program looks like this:
+            <ol>
+              <li>Take <span class="code">[i]</span>th element of <span class="code">array</span> and check whether it <span class="code">include?</span>s an "e". <br>
+                - So it takes <em>"Spiderman"</em> and evaluates <em>"true"</em> for it, because the string contains an "e". The <strong>key</strong> <em>"true"</em> gets created, with the <strong>value</strong> <em>["Spiderman"] (-> array)</em>.</li>
+              <li>Repeat step 1 for all elements in the collection.</li>
+              <li>Print out the result. <br>
+                - Now a hash with <strong>two keys</strong> (<em>"true"</em> and <em>"false"</em>) with corresponding <strong>two arrays</strong>, where one array holds the elements <em>["Spiderman", "Superman", "Magneto"]</em> (key <em>"true"</em>) and the other holds the elements <em>["Batman", "Hulk"]</em> (key <em>"false"</em>), has been printed.</li>
+            </ol>
+        </div>
+      </article>
+      <article id="content">
+        <a class="anchor" id="cycle"></a>
+        <h2>#cycle</h2>
+        <a class="jump up" href="#group_by">&igrave;</a>
+        <a class="jump down" href="#bottom">&iacute;</a>
+        <div class = "wrapper">
+            <strong>Enumerable#cycle</strong> <br>
+            <em>#cycle (n)</em> calls what's stated in <span class="code">{ BLOCK }</span> for each element of an enum (we'll use a string array in this case) repeatedly. It repeats <em>n</em> times. If no arguments or <em>nil</em> are passed, the method doesn't stop cycling until the user breaks the program from outside. If a non-positive number is given or the collection is empty, the method does nothing. It just returns <em>nil</em> if the loop has finished without getting interrupted, and <strong>not</strong> some new enum (array). Let's have a look at an example:
+            <div class="code">
+              <ol>
+                <li>milessong = ["But I would walk 500 miles",</li>
+                <li>"And I would walk 500 more",</li>
+                <li>"Just to be the man who walked 1,000 miles",</li>
+                <li>"To fall down at your door", ""]</li>
+                <li><br></li>
+                <li>milessong.cycle(500) { |x| puts x } <br>
+                  # => 500x the milessong!</li>
+              </ol>
+            </div>
+            This code prints out 500x the refrain of <a href="https://www.youtube.com/watch?v=iYFzOJiAy3M">Proclaimers' - 500 Miles 10 HOURS</a>! It takes every element of the array <span class="code">milessong</span>, <span class="code">puts</span> it, and repeats this procedure 500 times. <br>
+            I have to admit that I don't see many usecases for this, but at least you <em>can</em> do it!! ;-)
+        </div>
+      </article>
+    </section>
+    <footer>
+       <div id="social">
+          <img src="images/github_icon.png" alt="GitHub Icon"> <a href="https://github.com/henry-p">henry-p</a>
+        </div>
+    </footer>
+    <a class="anchor" id="bottom"></a>
+  </body>
+</html>
