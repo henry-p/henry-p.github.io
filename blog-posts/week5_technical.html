@@ -71,7 +71,7 @@
             </ol>
           </div>
           <br>
-          Also, we have a method that returns the color of the car. This color will be returned a so called <em>instance variable</em>.
+          Also, we have a method that returns the color of the car. This color will be returned as a so called <em>instance variable</em>.
           <br>
           <div class="code">
             <ol>
@@ -107,7 +107,7 @@
           </div>
           ?
           <br><br>
-          Aha, we can read the color (<em>„nil“</em> in this case), but that doesn't mean we can assign a new color to the car.
+          Aha, we can read the color (<em>„nil“</em> in this case), but that doesn't mean we can assign a new color to the car. <br><br>
           For this, we need a „writer“-method in addition to our „reader“-method (<span class="code">what_color</span>):
           <br>
           <div class="code">
@@ -128,7 +128,7 @@
             </ol>
           </div>
           <br>
-          Awesome. Now we can write and read instance variable <span class="code">@color</span> using reader (here <span class="code">what_color</span>) and writer (here <span class="code">give_color</span>) methods.
+          Awesome. Now we can write and read instance variable <span class="code">@color</span> using reader (here <span class="code">what_color</span>) and writer (here <span class="code">give_color</span>) methods. <br>
           This is done so frequently, why waste time writing these methods every time? We can do it easier.
           <br>
           <div class="code">
@@ -142,7 +142,7 @@
           <br>
           This does exactly the same as the class above. It turns out that Ruby already has predefined reader and writer methods called <strong><em>attr_reader</em></strong> and <strong><em>attr_writer</em></strong>, that we can use instead of <span class="code">what color</span> and <span class="code">give_color</span>. Internally they do the same as we did some lines above: They create one reader method that returns <span class="code">@color</span> and a writer method that assigns a string („Black“ if we want to) to the <span class="code">@color</span> instance variable, except that we can’t see this. It could be any other type of object instead of <em>„String“</em>, of course.
           <br> <br>
-          If you know that you need read AND write access to to instance variable (like in our example), you can cut corners even more:
+          If you know that you need read <strong>and</strong> write access to to instance variable (like in our example), you can cut corners even more:
 
           <div class="code">
             <ol>
@@ -171,7 +171,8 @@
             </ol>
           </div>
           <br>
-          It’s important to understand this concept thoroughly, because it’s possible to generate a lot of errors if you give access to instance variables from outside, although they were meant to only function inside of its class. That way, someone who uses your code could accidentally overwrite variables. Using <em>attr_reader/writer/accessor</em> properly prevents you from making those mistakes.
+          It’s important to understand this concept thoroughly, because it’s possible to generate a lot of errors if you give access to instance variables from outside, although they were meant to only function inside of its class. That way, someone who uses your code could accidentally overwrite variables. <br>
+          Using <em>attr_reader/writer/accessor</em> properly prevents you from making those mistakes.
         </div>
       </article>
     </section>
