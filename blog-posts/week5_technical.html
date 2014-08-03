@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Upper Class</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Source+Code+Pro:600' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
@@ -54,14 +54,124 @@
         </nav>
     </header>
     <section>
-      <h1>Title</h1>
+      <h1>Classes</h1>
       <article id="content">
         <a class="anchor" id="outline"></a>
-        <h2>Subtitle</h2>
-        <a class="jump up" href="#top">&igrave;</a>
+        <h2>Instance Variables</h2>
         <a class="jump down" href="#bottom">&iacute;</a>
         <div class = "wrapper">
-            Text
+          In this blog post I will talk about the use of instance variables. To understand what an instance variable is, and how to use it we’ll have a look at an example.
+          <br> <br>
+          Let's say we have a class Car.
+          <br>
+          <div class="code">
+            <ol>
+              <li>class Car</li>
+              <li>end</li>
+            </ol>
+          </div>
+          <br>
+          Also, we have a method that returns the color of the car. This color will be returned a so called <em>instance variable</em>.
+          <br>
+          <div class="code">
+            <ol>
+              <li>class Car</li>
+              <li>&nbsp;&nbsp;def what_color</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;@color # simply returning an instance variable.</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li>end</li>
+            </ol>
+          </div>
+          <br>
+          The <span class="code">@</span> indicates the instance variable here.
+          <br>
+          See what happens, if we are calling the <span class="code">what_color</span> method in order to get the color of the car.
+          <br>
+          <div class="code">
+            <ol>
+              <li>car = Car.new</li>
+              <li>car.what_color # => nil</li>
+            </ol>
+          </div>
+          <br>
+          First, we create an <em>instance</em> <span class="code">car</span> of the <span class="code">Car</span> class.
+          Second, we call the what_color method. But it returns <strong><em>nil</em></strong>!
+          Of course it does, because we never defined what <em>color</em> the <span class="code">car</span> instance should have.
+          <br><br>
+          Let’s try to give the car a color. How about:
+          <br>
+          <div class="code">
+            <ol>
+              <li>car.color = "Black" # => no method error</li>
+            </ol>
+          </div>
+          ?
+          <br><br>
+          Aha, we can read the color (<em>„nil“</em> in this case), but that doesn't mean we can assign a new color to the car.
+          For this, we need a „writer“-method in addition to our „reader“-method (<span class="code">what_color</span>):
+          <br>
+          <div class="code">
+            <ol>
+              <li>class Car</li>
+              <li>&nbsp;&nbsp;def what_color</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;@color</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li><br></li>
+              <li>&nbsp;&nbsp;def give_color=(str)</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;@color = str</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li>end</li>
+              <li><br></li>
+              <li>car = Car.new</li>
+              <li>car.give_color = „Black"</li>
+              <li>car.what_color # => „Black"</li>
+            </ol>
+          </div>
+          <br>
+          Awesome. Now we can write and read instance variable <span class="code">@color</span> using reader (here <span class="code">what_color</span>) and writer (here <span class="code">give_color</span>) methods.
+          This is done so frequently, why waste time writing these methods every time? We can do it easier.
+          <br>
+          <div class="code">
+            <ol>
+              <li>class Car</li>
+              <li>&nbsp;&nbsp;attr_reader :color</li>
+              <li>&nbsp;&nbsp;attr_writer :color</li>
+              <li>end</li>
+            </ol>
+          </div>
+          <br>
+          This does exactly the same as the class above. It turns out that Ruby already has predefined reader and writer methods called <strong><em>attr_reader</em></strong> and <strong><em>attr_writer</em></strong>, that we can use instead of <span class="code">what color</span> and <span class="code">give_color</span>. Internally they do the same as we did some lines above: They create one reader method that returns <span class="code">@color</span> and a writer method that assigns a string („Black“ if we want to) to the <span class="code">@color</span> instance variable, except that we can’t see this. It could be any other type of object instead of <em>„String“</em>, of course.
+          <br> <br>
+          If you know that you need read AND write access to to instance variable (like in our example), you can cut corners even more:
+
+          <div class="code">
+            <ol>
+              <li>class Car</li>
+              <li>&nbsp;&nbsp;attr_accessor :color</li>
+              <li>end</li>
+            </ol>
+          </div>
+          <br>
+          This combines both the <em>attr_reader</em> and the <em>attr_writer</em> methods.
+          If you make use of these three <em>attr_x</em> methods, you have access to the instance variable in any other method, like this:
+          <br>
+          <div class="code">
+            <ol>
+              <li>class Car</li>
+              <li>&nbsp;&nbsp;attr_accessor :color</li>
+              <li><br></li>
+              <li>&nbsp;&nbsp;def say_something</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;„You wanna know my color? Ok, it’s #{@color}!“</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li>end</li>
+              <li><br></li>
+              <li>car = Car.new</li>
+              <li>car.color = "Black"</li>
+              <li>car.say_something # => "You wanna know my color? Ok, it’s Black!“</li>
+            </ol>
+          </div>
+          <br>
+          It’s important to understand this concept thoroughly, because it’s possible to generate a lot of errors if you give access to instance variables from outside, although they were meant to only function inside of its class. That way, someone who uses your code could accidentally overwrite variables. Using <em>attr_reader/writer/accessor</em> properly prevents you from making those mistakes.
         </div>
       </article>
     </section>
