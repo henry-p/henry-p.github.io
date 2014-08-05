@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>skldföokwdsnfäklmedc</title>
+    <title>Inheritance vs Composition</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Source+Code+Pro:600' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
@@ -10,6 +10,9 @@
     <!--[if lt IE 9]>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
+
+    <!--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=ruby&skin=sunburst"></script>
+    -->
   </head>
   <body>
     <header>
@@ -60,14 +63,144 @@
         </nav>
     </header>
     <section>
-      <h1>Title</h1>
+      <h1>Inheritance vs Composition</h1>
       <article id="content">
-        <a class="anchor" id="outline"></a>
-        <h2>Subtitle</h2>
-        <a class="jump up" href="#top">&igrave;</a>
+        <a class="anchor" id="inheritance"></a>
+        <h2>Inheritance</h2>
+        <a class="jump down" href="#composition">&iacute;</a>
+        <div class = "wrapper">
+          In object-oriented (OO) programming, reusability of code plays a big role. Think of OO programmers as like they were smart sloths. They don't want to do much in general, and so they don't want to <em>re-do</em> many things. That's why the concept of objects was invented. Now, if you have a, let's say, class that provides certain functionality, you might want to provide this class with some extra functionality that someone (or even you) has done already. <br>
+          The most common ways to do so are the concepts of <em>Inheritance</em> and <em>composition</em>. In the following, I will give an example of how to use them. <br><br>
+          <div class="code">
+            <ol>
+              <li>class Parent</li>
+              <li>&nbsp;&nbsp;def override()</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;puts "PARENT override"</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li><br></li>
+              <li>&nbsp;&nbsp;def implicit()</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;puts "PARENT implicit call"</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li><br></li>
+              <li>&nbsp;&nbsp;def altered()</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;puts "PARENT altered"</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li>end</li>
+              <li><br></li>
+              <li>class Child &lt; Parent</li>
+              <li>&nbsp;&nbsp;def override()</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;puts "CHILD override"</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li><br></li>
+              <li>&nbsp;&nbsp;def altered()</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;puts "CHILD, BEFORE PARENT altered"</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;super()</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;puts "CHILD, AFTER PARENT altered"</li>
+              <li>&nbsp;&nbsp;end</li>
+              <li>end</li>
+              <li><br></li>
+              <li>parent = Parent.new()</li>
+              <li>child = Child.new()</li>
+              <li><br></li>
+              <li>parent.implicit()</li>
+              <li>child.implicit()</li>
+              <li><br></li>
+              <li>parent.override()</li>
+              <li>child.override()</li>
+              <li><br></li>
+              <li>parent.altered()</li>
+              <li>child.altered()</li>
+            </ol>
+          </div>
+          <br>
+          And this is the ouput:
+          <div class="code">
+            <ol>
+              <li>PARENT implicit call</li>
+              <li>PARENT implicit call</li>
+              <li>PARENT override</li>
+              <li>CHILD override</li>
+              <li>PARENT altered</li>
+              <li>CHILD, BEFORE PARENT altered</li>
+              <li>PARENT altered</li>
+              <li>CHILD, AFTER PARENT altered</li>
+           </ol>
+         </div>
+         The <strong>Child</strong> class inherits from the <strong>Parent</strong> class, which means that it gets some extra functionality. There are basically three things happening here:
+         <ol>
+           <li>implicit inheritance</li>
+           <li>overriding an inherited method</li>
+           <li>alter an inherited method</li>
+         </ol>
+         <em>implicit</em> means that all methods from the parent class are available to the child class. So if you call the method from the <span class="code">child</span>, the parent method gets called. <br>
+         <em>overriding</em> means that you can give a certain inherited method other functionality than the one from the parent class. This works by just defining the method in the child class with the same name as in the parent class. <br>
+         <em>alter</em> means that you can add functionality of methods of the parent class using <span class="code">super()</span>. You have to name the altered method exactly like in the parent class. You can then do whatever you want inside this method (as in <em>overriding</em>), but you can call the original method anytime within the altered method. For this, a simple <span class="code">super()</span> calls the original method.
+        </div>
+      </article>
+      <article id="content">
+        <a class="anchor" id="composition"></a>
+        <h2>Composition</h2>
+        <a class="jump up" href="#inheritance">&igrave;</a>
+        <a class="jump down" href="#conclusion">&iacute;</a>
+        <div class = "wrapper">
+          There are several ways of using <em>Composition</em>, but I'll present too options to you: <br>
+          <ol>
+            <li>Calling methods of other classes by creating an instance of a <strong>parent</strong> class in the initialization method</li>
+            <li>Using modules</li>
+          </ol>
+          <br>
+          <ol>
+            <li>
+              <div class="code">
+                <ol>
+                  <li>class Child</li>
+                  <li>&nbsp;&nbsp;def initialize()</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;@parent = Parent.new()</li>
+                  <li>&nbsp;&nbsp;end</li>
+                  <li><br></li>
+                  <li>&nbsp;&nbsp;def doSomething()</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;@parent.doSomething()</li>
+                  <li>&nbsp;&nbsp;end</li>
+                  <li>end</li>
+                </ol>
+              </div>
+              <br>
+              Creating an instance of Parent lets you use any of the <span class="code">Parent</span> class' methods.
+            </li>
+            <br>
+            <li>
+              <div class="code">
+                <ol>
+                  <li>module Other</li>
+                  <li>&nbsp;&nbsp;def doSomething</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;# ...</li>
+                  <li>&nbsp;&nbsp;end</li>
+                  <li>end</li>
+                  <li><br></li>
+                  <li>class Child</li>
+                  <li>&nbsp;&nbsp;include Other</li>
+                  <li><br></li>
+                  <li>&nbsp;&nbsp;def doSomething_alter</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;# ...</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;Other.doSomething</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;# ...</li>
+                  <li>&nbsp;&nbsp;end</li>
+                  <li>end</li>
+                </ol>
+              </div>
+              <br>
+              Using <span class="code">module</span> instead of Class let's you create a <em>Parent/Other/Whatever</em> pool of methods, that you can use in other (<em>Child</em>) classes, without the need of creating an instance of the <em>Other</em> class.
+            </li>
+          </ol>
+        </div>
+      </article>
+      <article id="content">
+        <a class="anchor" id="conclusion"></a>
+        <h2>Conclusion</h2>
+        <a class="jump up" href="#composition">&igrave;</a>
         <a class="jump down" href="#bottom">&iacute;</a>
         <div class = "wrapper">
-            Text
+          There are too many advanced aspects in this topic, so that it cannot be said in general which inheriting option you should use. <em>module</em> seems to be more practical than just creating instances, and also it seems to be more safe than inheriting, because you <strong>only</strong> inherit the <em>needed</em> methods by explicitly calling them.
         </div>
       </article>
     </section>
