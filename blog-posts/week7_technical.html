@@ -81,30 +81,60 @@
         <h2>SQL</h2>
         <a class="jump down" href="#nosql">&iacute;</a>
         <div class = "wrapper">
-            SQL (<em>Structured Query Language</em> pronounced "S-Q-L" or "Sequel") is a special-purpose programming language designed for managing data held in a <strong>relational</strong> database management system (RDBMS). <br>
-            That means it follows the so called <em>CRUD</em> principle: <br> <br>
+            SQL (<em>Structured Query Language</em> pronounced "S-Q-L" or "Sequel") is a special-purpose programming language designed for managing data held in a <strong>relational</strong> database management system (RDBMS).
+            Introduced in 1970s, the relational model offers a very mathematically-adapt way of structuring, keeping, and using the data. Relations bring the benefits of group-keeping the data as collections whereby data-tables relate all the input by assigning values to attributes. <br>
+            The RDBMS follows the so called <em>CRUD</em> principle: <br> <br>
             <ul>
               <li><strong>C</strong>reate <br>
-                Putting data into tables.</li> <br>
+                - Putting data into tables.</li>
               <li><strong>R</strong>ead <br>
-                Query data out of a table.</li> <br>
+                - Query data out of a table.</li>
               <li><strong>U</strong>pdate <br>
-                Change data already in a table.</li> <br>
+                - Change data already in a table.</li>
               <li><strong>D</strong>elete <br>
-                Remove data from the table.</li> <br>
-            </ul>
-            Almost any SQL operation is based on this principle (I will just discuss the standardized SQL rather than one of the many derivatives). <br>
-
+                - Remove data from the table.</li>
+            </ul> <br>
+            Almost any SQL operation is based on this principle. <br>
+            Despite their strict nature of forming and handling data, relational databases can become extremely flexible and offer a lot, granted with a little bit of effort.
         </div>
       </article>
       <article id="content">
         <a class="anchor" id="nosql"></a>
         <h2>NoSQL</h2>
         <a class="jump up" href="#sql">&igrave;</a>
-        <a class="jump down" href="#bottom">&iacute;</a>
+        <a class="jump down" href="#comparison">&iacute;</a>
         <div class = "wrapper">
             The term "NoSQL" has been introduced by Carlo Strozzi in 1998 to name his open-source relational database. Since his system departs from the pure relational model, he came up with this name that is an acronym for "Not only SQL".
-            The current NoSQL movement started in 2009 when Eric Evans and Johan Oskarsson (<em>Last.fm</em>) organized an event to discuss distributed database systems.
+            The current NoSQL movement started in 2009 when Eric Evans and Johan Oskarsson (<em>Last.fm</em>) organized an event to discuss distributed database systems. <br>
+            The NoSQL way of structuring the data aims to eliminate the constraints that the relational model brings, hence liberating the means of keeping, querying, and using information. NoSQL databases offer many different types of ways to keep and work with the data for specific use cases efficiently by using an <em>unstructured</em> or <em>structured-on-the-go</em> kind of approach. <br>
+            In contrast to the SQL standard, there are many implementations of NoSQL approaches with each working very <em>differently</em> and serving a <em>specific need</em>. So NoSQL databases do not have a common way to query the data and each solution provides its own query system.            
+        </div>
+      </article>
+      <article id="content">
+        <a class="anchor" id="comparison"></a>
+        <h2>Comparison</h2>
+        <a class="jump up" href="#nosql">&igrave;</a>
+        <a class="jump down" href="#bottom">&iacute;</a>
+        <div class = "wrapper">
+            Additional to the differences in data structuring and querying, there are many more. A few of them are listed here: <br><br>
+            <ul>
+              <li>
+                <strong>Reliability:</strong> <br>
+                When it comes to data reliability and safe guarantee of performed transactions, SQL databases are still more solid.
+              </li>
+              <li>
+                <strong>Scaling:</strong> <br>
+                Both solutions are easy to scale vertically (i.e. by increasing system resources). However, being more modern applications, most NoSQL solutions offer much easier means to scale horizontally (i.e. by creating a cluster of multiple machines).
+              </li>
+              <li>
+                <strong>Support:</strong> <br>
+                Relational database management systems are extremely popular and it is very easy to find support. If an issue arises, it is therefore often much easier to solve than recently-popular NoSQL databases, especially when dealing with complex solutions like MongoDB.
+              </li>
+              <li>
+                <strong>Complex data keeping and querying needs:</strong> <br>
+                By nature, relational databases are the go-to solution for complex querying and data keeping needs. Since NoSQL solutions mostly adress specific usecases, they primarily aim to solve a problem in an approachable way. Efficiency is therefore not the main target of most NoSQL solutions.
+              </li>
+            </ul>
         </div>
       </article>
     </section>
