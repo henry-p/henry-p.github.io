@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Big O Complexity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Source+Code+Pro:600' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
@@ -23,7 +23,7 @@
                 <a href="week9_cultural.html">?????????</a>
               </li>
               <li>
-                <a href="week8_technical.html">?????????</a>
+                <a href="week8_technical.html">Big <em>O</em> Complexity</a>
               </li>
               <li>
                 <a href="week8_cultural.html">Dealing with Conflict</a>
@@ -75,14 +75,19 @@
         </nav>
     </header>
     <section>
-      <h1>Title</h1>
+      <h1>Big <em>O</em> Complexity</h1>
       <article id="content">
         <a class="anchor" id="outline"></a>
-        <h2>Subtitle</h2>
-        <a class="jump up" href="#top">&igrave;</a>
+        <h2>Regarding Coding</h2>
         <a class="jump down" href="#bottom">&iacute;</a>
         <div class = "wrapper">
-            Text
+            <img src="images/big_o.png" height="500" alt="Big O diagram">
+            Think about an algorithm that counts the number of characters in a string. The complexity is O(n), because it needs to iterate over every character to come up with the number of characters. If you'd already have the number of characters stored in a variable beforehand, the complexity would be constant at a level of 1 -> O(1), because it would take the algorithm only one step to look up the number of characters, no matter how many there are in the string. <br><br>
+            An example for a logarithmic behavior would be the <a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>. It works like this: Let's say we have an ordered list of numbers, [1,2,5,6,8,9,11]. We tell the algorithm to look for the number 2. <br>
+            It will divide the list into two piles: [1,2,5],6,[8,9,11]. Is 6 the number we're looking for? No, but we know that 2 is smaller than 6, so we can ignore the pile to right from now on: [1,2,5]. <br>
+            Now it divides the list into two piles again: [1],2,[5]. It looks in the middle again, and it finds the number 2! The algorithm ends now after two divisions in total. <br>
+            This was the worst case scenario, because the 2 could have been in the middle of the list right from the beginning. Then it would have been zero divisions to find the number (best case scenario). You can calculate the worst case scenario number using this formula: ⌊log,base2 (x)⌋. So in this case it would be ⌊log,base2 (7)⌋ = ⌊2.807⌋ = 2. So to find a number in the list you would need two divisions at maximum. <br>
+            The "<em>O</em>" is used for describing the worst case complexity, which is <em><strong>O</strong></em>(⌊log,base2 (x)⌋) in this case. For best case scenario we use "omega", so it's <em>Ω</em>(1) in this case.
         </div>
       </article>
     </section>
